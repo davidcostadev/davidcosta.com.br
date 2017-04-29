@@ -7,6 +7,7 @@ O frontend start with gulp
 - nodes
 - npm
 - bower
+- editorconfig.org
 
 ### Instalation
 
