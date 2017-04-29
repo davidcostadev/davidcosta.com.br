@@ -1,0 +1,26 @@
+{
+    "name": "frontend-start",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.html",
+    "dependencies": {
+        "browser-sync": "^2.18.2",
+        "gulp": "^3.9.1",
+        "gulp-jshint": "^2.0.4",
+        "gulp-sass": "^2.3.2",
+        "gulp-sourcemaps": "^1.9.1",
+        "gulp-autoprefixer": "^3.1.1",
+        "jshint": "^2.9.4",
+        "jshint-stylish": "^2.2.1",
+        "mkdirp": "^0.5.1"
+    },
+    "devDependencies": {
+        "gulp-concat": "^2.6.1",
+        "gulp-connect-php": "0.0.8"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "David Costa <davidcostadev@gmail.com>",
+    "license": "ISC"
+}

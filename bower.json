@@ -1,0 +1,22 @@
+{
+  "name": "BASE",
+  "description": "",
+  "main": "index.html",
+  "authors": [
+    "David Costa <davidcostadev@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}

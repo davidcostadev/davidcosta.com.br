@@ -1,0 +1,8 @@
+assets/css/*
+!assets/css/empty
+assets/fonts/*
+!assets/fonts/empty
+assets/js/*
+!assets/js/empty
+node_modules
+bower_components
