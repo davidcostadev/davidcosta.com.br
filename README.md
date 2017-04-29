@@ -6,7 +6,8 @@ O frontend start with gulp
 - php
 - nodes
 - npm
-- bower
+- bower global
+- gulp global
 - editorconfig.org
 
 ### Instalation
