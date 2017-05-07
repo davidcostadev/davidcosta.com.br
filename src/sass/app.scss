@@ -4,10 +4,22 @@
 // FontAwesome
 @import "./bower_components/font-awesome/scss/font-awesome";
 
-
+@import "vars";
+@import "flex";
+@import "header";
 
 // your sass
+
+body {
+  background: $backgroundBody;
+  font-family: $fontFamilyAll;
+}
 
 h1 {
     color: blue
 }
+
+.skip-link {
+  display: none;
+}
+

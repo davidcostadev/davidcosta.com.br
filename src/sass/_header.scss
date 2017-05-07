@@ -1,0 +1,23 @@
+
+#header-page {
+  background: $backgroundHeader;
+  display: flex;
+}
+
+
+.brand {
+  a {
+    font-size: 18px;
+    font-weight: 900;
+    color: $textOne;
+    display: inline-block;
+    padding: 10px;
+
+    &:hover {
+      text-decoration: none;
+      color: darken($textOne, 30%);
+      color: lighten($textOne, 30%);
+
+    }
+  }
+}

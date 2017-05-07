@@ -16,8 +16,11 @@ var path = {
     sass: {
         src: [
             './src/sass/app.scss'
-        ],
-        output: './assets/css/'
+      ],
+      watch: [
+        './src/sass/*.scss'
+      ],
+      output: './assets/css/'
     },
     fonts: {
         src: [
@@ -77,18 +80,18 @@ gulp.task('js', function () {
         .pipe(gulp.dest(path.js.output));
 });
 
-gulp.task('php', function () {
-    php.server({
-        base: '.',
-        port: 8010,
-        keepalive: true
-    });
-});
+// gulp.task('php', function () {
+//     php.server({
+//         base: '.',
+//         port: 8010,
+//         keepalive: true
+//     });
+// });
 
-gulp.task('sync', ['php'], function () {
+gulp.task('sync', function () {
     browserSync.init({
-        // proxy : 'localhost'
-        proxy: '127.0.0.1:8010',
+        proxy : 'localhost',
+        // proxy: '127.0.0.1:8010',
         port: 3000,
         open: true,
         notify: false
@@ -101,7 +104,7 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('watch', function () {
-    gulp.watch(path.sass.src, ['sass']);
+    gulp.watch(path.sass.watch, ['sass']);
     gulp.watch(path.js.app, ['js']);
     gulp.watch(path.watch).on('change', reload);
 });
