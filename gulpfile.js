@@ -16,7 +16,7 @@ var path = {
     sass: {
         src: [
             './src/sass/app.scss'
-      ],
+        ],
       watch: [
         './src/sass/*.scss'
       ],

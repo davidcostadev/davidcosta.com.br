@@ -1,10 +1,21 @@
 // Bootstrap SASS
-@import "./bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
-
-// FontAwesome
-@import "./bower_components/font-awesome/scss/font-awesome";
+//@import "./bower_components/bootstrap-sass/assets/stylesheets/_bootstrap";
 
 @import "vars";
+
+@import "./bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "./bower_components/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import "./bower_components/bootstrap-sass/assets/stylesheets/bootstrap/print";
+@import "./bower_components/bootstrap-sass/assets/stylesheets/bootstrap/scaffolding";
+@import "./bower_components/bootstrap-sass/assets/stylesheets/bootstrap/type";
+@import "./bower_components/bootstrap-sass/assets/stylesheets/bootstrap/code";
+
+// FontAwesome
+//@import "./bower_components/font-awesome/scss/font-awesome";
+
+@import "./bower_components/flexboxgrid/dist/flexboxgrid";
+
+
 @import "flex";
 @import "header";
 

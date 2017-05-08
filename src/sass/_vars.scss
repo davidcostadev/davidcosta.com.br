@@ -23,3 +23,29 @@ $textOne : #CFD0C2;
 $backgroundBody : $backgroundTwo;
 
 $backgroundHeader : $backgroundOne;
+
+
+// bootstrap
+$font-family-base : $fontFamilyAll;
+$font-size-base : 14px;
+$line-height-base : 1.2;
+$text-color: $colorSix;
+
+$body-bg: $backgroundTwo;
+
+$link-color: $colorFor;
+$link-hover-color: darken($link-color, 15%);
+$link-hover-decoration: none;
+
+$border-radius-base: 0;
+$border-radius-large: 0;
+
+$thumbnail-padding: 4px;
+$thumbnail-bg:                $body-bg !default;
+$thumbnail-border:            #ddd !default;
+$thumbnail-border-radius:     $border-radius-base !default;
+
+
+
+
+
