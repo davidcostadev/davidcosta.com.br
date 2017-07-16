@@ -3,14 +3,16 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'starter',
+    title: 'David Costa',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto+Mono' },
+      { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/bulma/0.4.3/css/bulma.min.css' }
     ]
   },
   /*
@@ -20,6 +22,9 @@ module.exports = {
   /*
   ** Build configuration
   */
+  // css: [
+  //   'bulma/css/bulma.css'
+  // ],
   build: {
     /*
     ** Run ESLINT on save
