@@ -5,6 +5,7 @@
   "author": "David Costa <davidcostadev@gmail.com>",
   "private": true,
   "dependencies": {
+    "dotenv": "^4.0.0",
     "nuxt": "latest"
   },
   "scripts": {
