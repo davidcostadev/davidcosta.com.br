@@ -6,7 +6,8 @@
   "private": true,
   "dependencies": {
     "dotenv": "^4.0.0",
-    "nuxt": "latest"
+    "nuxt": "latest",
+    "webpack": "^3.3.0"
   },
   "scripts": {
     "dev": "nuxt",
