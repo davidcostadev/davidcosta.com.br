@@ -6,7 +6,7 @@
           <img src="/img/my-face.png" class="my-face" alt="my face">
         </div>
         <div class="column column-text">
-          <h1>Olá,<br> sou <span class="text-orange">David Costa</span> tenho 24 anos. Sou desenvolvedor <span class="text-green">FullStack</span>.</h1>
+          <h1>Olá,<br> sou <span class="text-orange">David Costa</span> tenho 24 anos. Sou desenvolvedor <span class="text-green">FullStack</span>..</h1>
         </div>
       </div>
     </div>
