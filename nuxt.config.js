@@ -47,6 +47,9 @@ module.exports = {
       useShortDoctype: true
     }
   },
+  plugins: [
+    { src: '~plugins/ga.js', ssr: false }
+  ],
   build: {
     /*
     ** Run ESLINT on save
