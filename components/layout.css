@@ -1,0 +1,14 @@
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: purple;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+}
+
+h1, h2, h3, button, input {
+  font-family: 'K2D', sans-serif;
+}

@@ -1,0 +1,24 @@
+.block {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.item {
+  list-style: none;
+  display: inline-flex;
+}
+
+.link {
+  padding: 0 12px;
+  font-size: 16px;
+  text-decoration: none;
+  color: purple;
+  display: inline-flex;
+  align-items: center;
+}
+
+.link:hover {
+  color: rebeccapurple;
+}

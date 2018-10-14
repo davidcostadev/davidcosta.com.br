@@ -1,0 +1,132 @@
+.block {
+  background-color: white;
+}
+
+.container {
+  padding: 30px 20px 50px;
+}
+
+@media (min-width: 765px) {
+  .container {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+@media (min-width: 992px) {
+  .container {
+    width: 900px;
+  }
+}
+
+.title {
+  font-size: 26px;
+}
+
+.subtitle {
+  font-size: 20px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.item {
+  width: 100%;
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 30px;
+}
+
+.inner {
+  position: relative;
+
+}
+
+.bg {
+  background-color: purple;
+  background-size: cover;
+  height: 173px;
+}
+
+.bg:before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 50;
+  background-color: rgba(128, 0, 128, 0.65);
+}
+
+.item:hover .bg:before {
+  background-color: rgba(102, 51, 153, 0.65);
+}
+
+.texts {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 15px;
+  color: white;
+}
+
+.name {
+  margin-top: 0;
+  font-size: 22px;
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+.year {
+  font-style: italic;
+  font-display: 12px;
+  margin-bottom: 3px;
+}
+
+.labels {
+
+}
+
+.label {
+  background-color: white;
+  display: inline-block;
+  color: purple;
+  border-radius: 3px;
+  width: auto;
+  padding: 1px 2px;
+  font-size: 14px;
+}
+
+.label+.label {
+  margin-left: 3px;
+}
+
+.button {
+  background-color: purple;
+  color: white;
+  border-width: 0;
+  outline-width: 0;
+  padding: 10px 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: rebeccapurple;
+}
+
