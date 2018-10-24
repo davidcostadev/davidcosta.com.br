@@ -94,12 +94,11 @@
 
 .year {
   font-style: italic;
-  font-display: 12px;
-  margin-bottom: 3px;
+  font-size: 12px;
 }
 
 .labels {
-
+  margin-top: 3px;
 }
 
 .label {

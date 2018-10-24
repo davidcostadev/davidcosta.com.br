@@ -2,23 +2,64 @@ import css from './projects.css';
 
 const listProjects = [
   {
-    name: 'Colniza',
+    name: 'Withmoney',
     bg: 'colniza',
+    year: 2018,
+    labels: [
+      'Node.js',
+      'Vue',
+      'React',
+    ]
+  },
+  {
+    name: 'newcommerce',
+    year: 2018,
+    labels: [
+      'Node.js',
+      'React',
+      'Next.js',
+    ]
+  },
+  {
+    name: 'Riot Acampamento Yordle',
+    year: 2018,
+    labels: [
+      'Typescript',
+      'Node.js',
+      'React',
+    ]
+  },
+  {
+    name: 'Colniza',
     year: 2017,
     labels: [
-      'PHP',
       'CakePHP',
     ]
   },
   {
-    name: 'Outro',
+    name: 'Carro no Minuto',
     year: 2017,
-    labels: [],
+    labels: [
+      'CakePHP',
+      'Cordova',
+      'Framework7',
+    ],
   },
   {
-    name: 'Outro 1',
-    year: 2017,
-    labels: [],
+    name: 'Whatsfácil',
+    year: 2016,
+    labels: [
+      'CakePHP',
+      'Socket',
+      'Node.js',
+    ],
+  },
+  {
+    name: 'Mundial Megastore',
+    year: 2015,
+    labels: [
+      'Joomla'
+    ],
   },
 ];
 
