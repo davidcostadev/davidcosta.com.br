@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "https://awesome-fermi-ae8e35.netlify.com/*"
+  to = "https://davidcosta.com.br/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://awesome-fermi-ae8e35.netlify.com/*"
+  to = "http://davidcosta.com.br/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://davidcosta.com.br/*"
+  to = "https://davidcosta.com.br/:splat"
+  status = 301
+  force = true
