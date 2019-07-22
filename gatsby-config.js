@@ -81,6 +81,7 @@ module.exports = {
         langKeyDefault: "en",
         useLangKeyLayout: true,
         prefixDefault: false,
+        pagesPaths: [`${__dirname}/content/blog`],
         markdownRemark: {
           postPage: "src/templates/blog-post.js",
           query: `
