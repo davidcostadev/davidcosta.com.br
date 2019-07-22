@@ -1,3 +1,5 @@
+const languages = require("./src/data/languages")
+
 module.exports = {
   siteMetadata: {
     title: `David Costa`,
@@ -7,6 +9,7 @@ module.exports = {
     social: {
       twitter: `davidcostadev`,
     },
+    languages,
   },
   plugins: [
     {
@@ -77,28 +80,9 @@ module.exports = {
     {
       resolve: "gatsby-plugin-i18n",
       options: {
-        langKeyForNull: "en",
         langKeyDefault: "en",
-        useLangKeyLayout: true,
-        prefixDefault: false,
+        useLangKeyLayout: false,
         pagesPaths: [`${__dirname}/content/blog`],
-        markdownRemark: {
-          postPage: "src/templates/blog-post.js",
-          query: `
-          {
-            allMarkdownRemark {
-              edges {
-                node {
-                  fields {
-                    slug,
-                    langKey
-                  }
-                }
-              }
-            }
-          }
-          `,
-        },
       },
     },
   ],

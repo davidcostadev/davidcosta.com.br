@@ -6,11 +6,49 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
+const ListLanguages = ({ langKey, slug, langs }) => {
+  const newSlug = slug.replace(`/${langKey}`, "")
+
+  const list = langs
+    .filter(lang => lang !== langKey)
+    .map(lang => ({
+      link: `/${lang}${newSlug}`,
+      lang,
+    }))
+
+  return (
+    <ul
+      style={{
+        border: "1px solid #bbbbbb",
+        borderRadius: "4px",
+        margin: "0 0 15px 0",
+        listStyle: "none",
+        padding: "5px",
+        fontSize: "14px",
+      }}
+    >
+      {list.map(item => (
+        <li
+          key={item.lang}
+          style={{
+            margin: "0 5px 0 0",
+            padding: 0,
+          }}
+        >
+          <Link to={item.link}>{item.lang}</Link>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
+    const langs = this.props.data.site.siteMetadata.languages.langs
     const { previous, next } = this.props.pageContext
+    const { langKey, slug } = this.props.data.markdownRemark.fields
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -35,6 +73,7 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
+        <ListLanguages {...{ langKey, slug, langs }} />
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
           style={{
@@ -42,7 +81,6 @@ class BlogPostTemplate extends React.Component {
           }}
         />
         <Bio />
-
         <ul
           style={{
             display: `flex`,
@@ -80,12 +118,19 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        languages {
+          langs
+        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
       excerpt(pruneLength: 160)
       html
+      fields {
+        slug
+        langKey
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

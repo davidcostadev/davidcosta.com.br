@@ -8,6 +8,13 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(
     `
       {
+        site {
+          siteMetadata {
+            languages {
+              langs
+            }
+          }
+        }
         allMarkdownRemark(
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
@@ -16,9 +23,12 @@ exports.createPages = async ({ graphql, actions }) => {
             node {
               fields {
                 slug
+                langKey
               }
               frontmatter {
                 title
+                templateKey
+                lang
               }
             }
           }
@@ -48,17 +58,4 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     })
   })
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
 }
