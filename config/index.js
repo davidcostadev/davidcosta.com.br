@@ -8,7 +8,7 @@ const site = {
   twitter: "davidcostadev",
   github: "davidcostadev",
   disqusShortName: "davidcostadev",
-  googleTrackingId: "",
+  googleTrackingId: "UA-144325709-1",
   lang: "en",
 }
 
