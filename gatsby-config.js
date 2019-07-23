@@ -1,22 +1,43 @@
-const languages = require("./src/data/languages")
+const {
+  pathPrefix,
+  title,
+  author,
+  description,
+  siteUrl,
+  twitter = "",
+  github = "",
+  medium = "",
+  facebook = "",
+  disqusShortName = "",
+  lang = "en",
+  googleTrackingId: trackingId,
+} = require("./config").site
+const supportedLanguages = require("./config").supportedLanguages
 
 module.exports = {
+  pathPrefix,
   siteMetadata: {
-    title: `David Costa`,
-    author: `David Costa`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://davidcostadev.com.br/`,
+    title,
+    author,
+    description,
+    siteUrl,
     social: {
-      twitter: `davidcostadev`,
+      twitter,
+      github,
+      medium,
+      facebook,
     },
-    languages,
+    disqusShortName,
+    lang,
+    langsJson: JSON.stringify(supportedLanguages),
+    langs: Object.entries(supportedLanguages),
   },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: `blog`,
+        name: "blog",
       },
     },
     {
@@ -53,18 +74,18 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId,
       },
     },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `David Costa Blog`,
-        short_name: `davidcostadev`,
+        name: `Gatsby Starter Blog`,
+        short_name: `GatsbyJS`,
         start_url: `/`,
         background_color: `#ffffff`,
-        theme_color: `#4a148c`,
+        theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },
@@ -80,9 +101,9 @@ module.exports = {
     {
       resolve: "gatsby-plugin-i18n",
       options: {
-        langKeyDefault: "en",
+        langKeyDefault: lang,
         useLangKeyLayout: false,
-        pagesPaths: [`${__dirname}/content/blog`],
+        pagesPaths: ["/content/blog/"],
       },
     },
   ],
