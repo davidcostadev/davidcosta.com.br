@@ -4,7 +4,7 @@ const site = {
   author: "David Costa",
   description:
     "Student TI, Javascript Developer, maintainer of @withmoney project and fastexpress packager and work at @EvoluxBR",
-  siteUrl: "https://davidcosta.com.br/",
+  siteUrl: "https://davidcosta.com.br",
   twitter: "davidcostadev",
   github: "davidcostadev",
   disqusShortName: "davidcostadev",
