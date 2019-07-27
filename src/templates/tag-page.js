@@ -16,6 +16,7 @@ const TagPageTemplate = ({ pageContext, data, location }) => {
   const { tag, langKey } = pageContext
   const { edges, totalCount } = data.allMarkdownRemark
   const siteTitle = data.site.siteMetadata.title
+  const langs = data.site.siteMetadata.langs
   const defaultLang = data.site.siteMetadata.lang
 
   const { tTags, tfTagHeader } = useText(langKey)
@@ -23,11 +24,11 @@ const TagPageTemplate = ({ pageContext, data, location }) => {
   const tagHeader = tfTagHeader(totalCount, tag)
 
   const base = getBaseUrl(defaultLang, langKey)
-  console.log(location)
   return (
     <Layout
       base={base}
       lang={langKey}
+      langs={langs}
       location={location}
       title={siteTitle}
       breadcrumbs={[{ text: tTags, url: `${base}tags` }, { text: tag }]}
@@ -90,6 +91,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         lang
+        langs
       }
     }
     allMarkdownRemark(
