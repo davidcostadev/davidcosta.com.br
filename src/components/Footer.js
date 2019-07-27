@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react"
 
-import { rhythm } from '../../utils/typography';
+import { rhythm } from "../utils/typography"
 
 function Footer() {
   return (
@@ -8,11 +8,11 @@ function Footer() {
       style={{
         marginTop: rhythm(2.5),
         paddingTop: rhythm(1),
-        textAlign: 'center',
+        textAlign: "center",
       }}
     >
       <p>
-        Made of{' '}
+        Made of{" "}
         <a
           href="https://github.com/thundermiracle/gatsby-simple-blog"
           target="_blank"
@@ -22,7 +22,7 @@ function Footer() {
         </a>
       </p>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

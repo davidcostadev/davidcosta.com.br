@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import ReadModeToggle from "./Layout/ReadModeToggle"
+import ReadModeToggle from "./ReadModeToggle"
 import LanguageSelector from "./LanguageSelector"
 import "./Header.css"
 

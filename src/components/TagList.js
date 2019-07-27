@@ -1,9 +1,9 @@
-import './TagList.css';
+import "./TagList.css"
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react"
+import PropTypes from "prop-types"
 
-import Tag from '../Tag';
+import Tag from "./Tag"
 
 function TagList({ tags, baseUrl, ...restProps }) {
   return (
@@ -14,16 +14,16 @@ function TagList({ tags, baseUrl, ...restProps }) {
         </li>
       ))}
     </ul>
-  );
+  )
 }
 
 TagList.propTypes = {
   tags: PropTypes.array.isRequired,
   baseUrl: PropTypes.string,
-};
+}
 
 TagList.defaultProps = {
-  baseUrl: '',
-};
+  baseUrl: "",
+}
 
-export default TagList;
+export default TagList

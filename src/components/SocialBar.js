@@ -1,7 +1,7 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 
-import { Github, Twitter, Facebook, Medium } from "../icons"
+import { Github, Twitter, Facebook, Medium } from "./icons"
 
 function SocialBar() {
   return (
