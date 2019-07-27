@@ -4,7 +4,7 @@ import { site } from "../../config"
 import "./LanguangeSelector.css"
 
 const getLink = (lang, slug) => {
-  if ((slug === "/" || slug === "/tags/") && lang === site.lang) {
+  if ((slug === "/" || slug.includes("/tags/")) && lang === site.lang) {
     return slug
   }
 
@@ -13,7 +13,6 @@ const getLink = (lang, slug) => {
 
 const LanguangeSelector = ({ langKey, slug, langs }) => {
   const newSlug = slug.replace(`/${langKey}`, "")
-
   if (!langs.length) {
     return null
   }
