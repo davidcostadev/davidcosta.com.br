@@ -14,6 +14,10 @@ const getLink = (lang, slug) => {
 const LanguangeSelector = ({ langKey, slug, langs }) => {
   const newSlug = slug.replace(`/${langKey}`, "")
 
+  if (!langs.length) {
+    return null
+  }
+
   const [selected] = langs.filter(lang => lang[0] === langKey)
 
   const list = langs
@@ -36,6 +40,10 @@ const LanguangeSelector = ({ langKey, slug, langs }) => {
       </ul>
     </div>
   )
+}
+
+LanguangeSelector.defaultProps = {
+  langs: [],
 }
 
 export default LanguangeSelector
