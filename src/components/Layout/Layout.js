@@ -1,52 +1,32 @@
 import React from "react"
 import PropTypes from "prop-types"
 
-import LanguageBar from "./LanguageBar"
-import Header from "./Header"
+import HeaderPage from "./../Header"
 import Footer from "./Footer"
-import ReadModeToggle from "./ReadModeToggle"
-import Breadcrumbs from "../Breadcrumbs"
 
-import { rhythm } from "../../utils/typography"
+import "./Layout.css"
 
-function Layout({ children, location, title, breadcrumbs, base, lang }) {
+function Layout({
+  children,
+  location,
+  title,
+  breadcrumbs,
+  base,
+  lang,
+  langs,
+  slug,
+}) {
   return (
-    <div
-      style={{
-        color: "var(--textNormal)",
-        background: "var(--bg)",
-        transition: "color 0.2s ease-out, background 0.2s ease-out",
-        minHeight: "100vh",
-        fontFamily: "var(--systemFont)",
-      }}
-    >
-      {lang && <LanguageBar lang={lang} />}
-      <div
-        style={{
-          marginLeft: "auto",
-          marginRight: "auto",
-          maxWidth: rhythm(24),
-          padding: `2.625rem ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginBottom: "2.625rem",
-          }}
-        >
-          <Header base={base} location={location} title={title} />
-          <ReadModeToggle />
-        </header>
-        <Breadcrumbs
-          base={base}
-          langKey={lang}
-          data={breadcrumbs}
-          showTop={true}
-          style={{ marginTop: "-1.5rem" }}
-        />
+    <div className="layout">
+      <HeaderPage
+        base={base}
+        location={location}
+        title={title}
+        lang={lang}
+        langs={langs}
+        slug={slug || location.pathname}
+      />
+      <div className="layout__container">
         {children}
         <Footer />
       </div>

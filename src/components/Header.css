@@ -1,0 +1,42 @@
+.header {
+  background-color: var(--purple);
+  color: #ffffff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.header__container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+}
+
+.header__language-switch {
+  margin-right: 15px;
+}
+
+.header__brand {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 1.5em;
+  font-weight: normal;
+  font-family: 'Nanum Gothic', sans-serif;
+  line-height: 1.5em;
+}
+
+.header__brand  a {
+  color: #ffffff;
+}
+
+.header__theme {
+  display: flex;
+}
+
