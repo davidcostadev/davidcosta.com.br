@@ -1,45 +1,47 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react"
+import PropTypes from "prop-types"
 
 // Utilities
-import kebabCase from 'lodash/kebabCase';
+import kebabCase from "lodash/kebabCase"
 
 // Components
-import { Helmet } from 'react-helmet';
-import { graphql } from 'gatsby';
+import { Helmet } from "react-helmet"
+import { graphql } from "gatsby"
 
-import Layout from '../components/Layout';
-import Tag from '../components/Tag';
-import Bio from '../components/Bio';
-import { useText } from '../context/TextContext';
-import getBaseUrl from '../utils/getBaseUrl';
+import Layout from "../components/Layout"
+import Tag from "../components/Tag"
+import Bio from "../components/Bio"
+import { useText } from "../context/TextContext"
+import getBaseUrl from "../utils/getBaseUrl"
 
 const styles = {
   tagListDiv: {
-    marginLeft: '1.5rem',
+    marginLeft: "1.5rem",
     lineHeight: 3,
   },
-};
+}
 
 const TagsPage = ({
   pageContext,
   data: {
     allMarkdownRemark: { group },
     site: {
-      siteMetadata: { title, lang },
+      siteMetadata: { title, lang, langs },
     },
   },
+  location,
 }) => {
-  const { langKey } = pageContext;
-  const { tTags } = useText(langKey);
+  const { langKey } = pageContext
+  const { tTags } = useText(langKey)
 
-  const base = getBaseUrl(lang, langKey);
+  const base = getBaseUrl(lang, langKey)
 
   return (
     <Layout
       base={base}
       lang={langKey}
-      location="location"
+      langs={langs}
+      location={location}
       title={title}
       breadcrumbs={[{ text: tTags }]}
     >
@@ -61,8 +63,8 @@ const TagsPage = ({
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
 TagsPage.propTypes = {
   pageContext: PropTypes.object.isRequired,
@@ -72,7 +74,7 @@ TagsPage.propTypes = {
         PropTypes.shape({
           fieldValue: PropTypes.string.isRequired,
           totalCount: PropTypes.number.isRequired,
-        }).isRequired,
+        }).isRequired
       ),
     }),
     site: PropTypes.shape({
@@ -82,9 +84,9 @@ TagsPage.propTypes = {
       }),
     }),
   }).isRequired,
-};
+}
 
-export default TagsPage;
+export default TagsPage
 
 export const pageQuery = graphql`
   query TagsTotalPage($langKey: String) {
@@ -92,13 +94,20 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         lang
+        langs
       }
     }
-    allMarkdownRemark(limit: 1000, filter: { fields: { langKey: { eq: $langKey } } }) {
+    sitePage {
+      path
+    }
+    allMarkdownRemark(
+      limit: 1000
+      filter: { fields: { langKey: { eq: $langKey } } }
+    ) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
       }
     }
   }
-`;
+`

@@ -13,42 +13,6 @@ import { formatPostDate, formatReadingTime } from "../utils/helpers"
 import { rhythm, scale } from "../utils/typography"
 import getBaseUrl from "../utils/getBaseUrl"
 
-const ListLanguages = ({ langKey, slug, langs }) => {
-  const newSlug = slug.replace(`/${langKey}`, "")
-
-  const list = langs
-    .filter(lang => lang[0] !== langKey)
-    .map(lang => ({
-      link: `/${lang[0]}${newSlug}`,
-      lang: lang[1],
-    }))
-
-  return (
-    <ul
-      style={{
-        border: "1px solid #bbbbbb",
-        borderRadius: "4px",
-        margin: "0 0 15px 0",
-        listStyle: "none",
-        padding: "5px",
-        fontSize: "14px",
-      }}
-    >
-      {list.map(item => (
-        <li
-          key={item.lang}
-          style={{
-            margin: "0 5px 0 0",
-            padding: 0,
-          }}
-        >
-          <Link to={item.link}>{item.lang}</Link>
-        </li>
-      ))}
-    </ul>
-  )
-}
-
 function BlogPostTemplate({ data, pageContext, location }) {
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
@@ -70,6 +34,9 @@ function BlogPostTemplate({ data, pageContext, location }) {
       base={base}
       location={location}
       title={siteTitle}
+      lang={langKey}
+      langs={langs}
+      slug={slug}
       breadcrumbs={[{ text: post.frontmatter.title }]}
     >
       <SEO
@@ -89,7 +56,6 @@ function BlogPostTemplate({ data, pageContext, location }) {
         {formatPostDate(post.frontmatter.date, langKey)}
         {` • ${formatReadingTime(post.timeToRead)}`}
       </p>
-      <ListLanguages {...{ langKey, slug, langs }} />
       {tags}
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
 

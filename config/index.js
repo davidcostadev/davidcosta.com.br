@@ -1,6 +1,6 @@
 const site = {
   pathPrefix: "/",
-  title: "David Costa Blog",
+  title: "David Costa",
   author: "David Costa",
   description:
     "Student TI, Javascript Developer, maintainer of @withmoney project and fastexpress packager and work at @EvoluxBR",
