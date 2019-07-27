@@ -3,10 +3,10 @@ import PropTypes from "prop-types"
 
 import { Link } from "gatsby"
 
-import { rhythm } from "../../utils/typography"
-import { formatPostDate, formatReadingTime } from "../../utils/helpers"
+import { rhythm } from "../utils/typography"
+import { formatPostDate, formatReadingTime } from "../utils/helpers"
 
-import TagList from "../TagList"
+import TagList from "./TagList"
 
 function PostAbbrev({
   slug,

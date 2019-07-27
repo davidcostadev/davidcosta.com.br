@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import { site } from "../../config"
-import "./LanguangeSelector.css"
+import "./LanguageSelector.css"
 
 const getLink = (lang, slug) => {
   if ((slug === "/" || slug.includes("/tags/")) && lang === site.lang) {
