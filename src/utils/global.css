@@ -1,4 +1,14 @@
 body {
+  --purple1: #892CE5;
+  --purple2: #7F53AA;
+  --purple3: #5B1D99;
+  --purple4: #AB70E5;
+  --purple5: #3D1366;
+  --purple6: #281C40;
+  --purpleLight: var(--purple1);
+  --purple: var(--purple3);
+  --purpleDark: var(--purple5);
+
   --pink: rgb(255, 167, 196);
   background-color: var(--bg);
   --breadcrumbsDividerSize: 20px;
@@ -7,10 +17,12 @@ body {
 
 body.light {
   --bg: #FFFFFF;
-  --header: var(--pink);
+  --header: var(--purple);
   --textNormal: #222222;
   --textTitle: #222222;
-  --textLink: #5B1D98;
+  --link: var(--purple);
+  --linkHover: var(--purple4);
+  --linkActive: var(--purpleDark);
   --hr: hsla(0, 0%, 0%, 0.2);
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
   --inlineCode-text: #1A1A1A;
@@ -26,11 +38,13 @@ body.light {
 body.dark {
   -webkit-font-smoothing: antialiased;
 
-  --bg: #282C35;
+  --bg: #212121;
   --header: #FFFFFF;
   --textNormal: rgba(255, 255, 255, 0.88);
   --textTitle: #FFFFFF;
-  --textLink: var(--pink);
+  --link: var(--purpleLight);
+  --linkHover: var(--purple4);
+  --linkActive: var(--purpleLight);
   --hr: hsla(0, 0%, 100%, 0.2);
   --inlineCode-bg: hsl(222, 14%, 25%);
   --inlineCode-text: #E6E6E6;
@@ -41,7 +55,17 @@ body.dark {
 }
 
 a {
+  color: var(--link);
   box-shadow: none;
+}
+
+a:focus,
+a:hover {
+  color: var(--linkHover);
+}
+
+a:active {
+  color: var(--linkActive);
 }
 
 /*
