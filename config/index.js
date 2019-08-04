@@ -7,7 +7,6 @@ const site = {
   siteUrl: 'https://davidcosta.com.br',
   twitter: 'davidcostadev',
   github: 'davidcostadev',
-  disqusShortName: 'davidcostadev',
   googleTrackingId: 'UA-144325709-1',
   lang: 'en',
 };

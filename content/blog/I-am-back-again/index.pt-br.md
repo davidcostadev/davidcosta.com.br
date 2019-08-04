@@ -1,10 +1,9 @@
 ---
 title: De volta novamente
-date: "2019-07-23T00:35:05.466Z"
+date: '2019-07-23T00:35:05.466Z'
 lang: pt-br
-tags: ["life"]
+tags: ['life']
 description: Voltando a postar novamente
-disqus: true
 ---
 
 Depois de muito tempo com meu site fora dor ar. Resolvi voltar novamente e trazer conteúdo sobre tecnologia, programação, carreira e outros assuntos que posso estar postando também. E antes de realmente colocar a mão na massa nos conteúdos que pretendo fazer gostaria um de contextualizar vocês contando um pouco sobre minha carreira.

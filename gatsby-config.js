@@ -8,7 +8,6 @@ const {
   github = '',
   medium = '',
   facebook = '',
-  disqusShortName = '',
   lang = 'en',
   googleTrackingId: trackingId,
 } = require('./config').site;
@@ -27,7 +26,6 @@ module.exports = {
       medium,
       facebook,
     },
-    disqusShortName,
     lang,
     langsJson: JSON.stringify(supportedLanguages),
     langs: Object.entries(supportedLanguages),
