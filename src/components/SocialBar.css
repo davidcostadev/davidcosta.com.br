@@ -1,0 +1,7 @@
+.social-bar {
+  display: flex;
+}
+
+.social-bar a {
+  margin-left: 15px;
+}
