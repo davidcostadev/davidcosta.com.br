@@ -10,7 +10,6 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import TagList from '../components/TagList';
 import RelativePosts from '../components/RelativePosts';
-import Disqus from '../components/Disqus';
 
 import { formatPostDate, formatReadingTime } from '../utils/helpers';
 import { rhythm, scale } from '../utils/typography';
@@ -95,8 +94,6 @@ function BlogPostTemplate({ data, pageContext, location }) {
           )}
         </li>
       </ul>
-
-      <Disqus identifier={post.id} show={post.frontmatter.disqus} title={post.frontmatter.title} />
     </Layout>
   );
 }
@@ -129,7 +126,6 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         description
         tags
-        disqus
       }
       fields {
         langKey

@@ -1,10 +1,9 @@
 ---
 title: I'm Back Again
-date: "2019-07-23T00:35:05.466Z"
+date: '2019-07-23T00:35:05.466Z'
 lang: en
-tags: ["life"]
+tags: ['life']
 description: Backing to post again
-disqus: true
 ---
 
 After a long time with my site off air pain. I decided to come back again and bring content about technology, programming, career and other topics that I may be posting as well. And before really getting to grips with the content I want to do, I'd like to contextualize you by telling you a little bit about my career.
