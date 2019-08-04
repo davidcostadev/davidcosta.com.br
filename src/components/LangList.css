@@ -4,9 +4,9 @@
 }
 
 .lang-link {
+  font-weight: bold;
+  font-size: 22px;
   background-color: var(--linkBackground);
   border-bottom: 1px solid var(--linkBorder);
-  font-size: 22px;
-  font-weight: bold;
   cursor: pointer;
 }

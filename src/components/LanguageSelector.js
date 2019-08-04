@@ -1,23 +1,24 @@
-import React from "react"
-import { Link } from "gatsby"
-import { site } from "../../config"
-import "./LanguageSelector.css"
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Link } from 'gatsby';
+import { site } from '../../config';
+import './LanguageSelector.css';
 
 const getLink = (lang, slug) => {
-  if ((slug === "/" || slug.includes("/tags/")) && lang === site.lang) {
-    return slug
+  if ((slug === '/' || slug.includes('/tags/')) && lang === site.lang) {
+    return slug;
   }
 
-  return `/${lang}${slug}`
-}
+  return `/${lang}${slug}`;
+};
 
 const LanguangeSelector = ({ langKey, slug, langs }) => {
-  const newSlug = slug.replace(`/${langKey}`, "")
+  const newSlug = slug.replace(`/${langKey}`, '');
   if (!langs.length) {
-    return null
+    return null;
   }
 
-  const [selected] = langs.filter(lang => lang[0] === langKey)
+  const [selected] = langs.filter(lang => lang[0] === langKey);
 
   const list = langs
     .filter(lang => lang[0] !== langKey)
@@ -25,7 +26,7 @@ const LanguangeSelector = ({ langKey, slug, langs }) => {
       link: getLink(lang[0], newSlug),
       lang: lang[0],
       label: lang[1],
-    }))
+    }));
 
   return (
     <div className="language-selector">
@@ -38,11 +39,11 @@ const LanguangeSelector = ({ langKey, slug, langs }) => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};
 
 LanguangeSelector.defaultProps = {
   langs: [],
-}
+};
 
-export default LanguangeSelector
+export default LanguangeSelector;

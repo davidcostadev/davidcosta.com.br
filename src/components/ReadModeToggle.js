@@ -1,11 +1,11 @@
-import React from "react"
-import Helmet from "react-helmet"
+import React from 'react';
+import Helmet from 'react-helmet';
 
-import Toggle from "./Toggle"
-import sun from "./sun.png"
-import moon from "./moon.png"
+import Toggle from './Toggle';
+import sun from './sun.png';
+import moon from './moon.png';
 
-import withThemeFlag from "../utils/withThemeFlag"
+import withThemeFlag from '../utils/withThemeFlag';
 
 // eslint-disable-next-line react/prop-types
 function ReadModeToggle({ isLightTheme }) {
@@ -14,8 +14,8 @@ function ReadModeToggle({ isLightTheme }) {
       <Helmet
         meta={[
           {
-            name: "theme-color",
-            content: isLightTheme ? "#ffa8c5" : "#282c35",
+            name: 'theme-color',
+            content: isLightTheme ? '#ffa8c5' : '#282c35',
           },
         ]}
       />
@@ -29,7 +29,7 @@ function ReadModeToggle({ isLightTheme }) {
                 width="16"
                 height="16"
                 role="presentation"
-                style={{ pointerEvents: "none" }}
+                style={{ pointerEvents: 'none' }}
               />
             ),
             unchecked: (
@@ -39,20 +39,19 @@ function ReadModeToggle({ isLightTheme }) {
                 width="16"
                 height="16"
                 role="presentation"
-                style={{ pointerEvents: "none" }}
+                style={{ pointerEvents: 'none' }}
               />
             ),
           }}
           checked={!isLightTheme}
-          onChange={e =>
-            window.__setPreferredTheme(e.target.checked ? "dark" : "light")
-          }
+          // eslint-disable-next-line no-underscore-dangle
+          onChange={e => window.__setPreferredTheme(e.target.checked ? 'dark' : 'light')}
         />
       ) : (
-        <div style={{ height: "24px" }} />
+        <div style={{ height: '24px' }} />
       )}
     </>
-  )
+  );
 }
 
-export default withThemeFlag(ReadModeToggle)
+export default withThemeFlag(ReadModeToggle);

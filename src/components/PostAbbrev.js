@@ -1,24 +1,16 @@
-import React from "react"
-import PropTypes from "prop-types"
+/* eslint-disable react/no-danger */
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Link } from "gatsby"
+import { Link } from 'gatsby';
 
-import { rhythm } from "../utils/typography"
-import { formatPostDate, formatReadingTime } from "../utils/helpers"
+import { rhythm } from '../utils/typography';
+import { formatPostDate, formatReadingTime } from '../utils/helpers';
 
-import TagList from "./TagList"
+import TagList from './TagList';
 
-function PostAbbrev({
-  slug,
-  title,
-  date,
-  timeToRead,
-  excerpt,
-  tags,
-  lang,
-  base,
-}) {
-  let excerptPart
+function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, lang, base }) {
+  let excerptPart;
   if (excerpt) {
     excerptPart = (
       <p
@@ -26,18 +18,14 @@ function PostAbbrev({
           __html: excerpt,
         }}
       />
-    )
+    );
   }
 
-  let tagsPart
+  let tagsPart;
   if (tags) {
     tagsPart = (
-      <TagList
-        style={{ margin: "0.5rem 0 -0.5rem -0.5rem" }}
-        tags={tags}
-        baseUrl={`${base}tags`}
-      />
-    )
+      <TagList style={{ margin: '0.5rem 0 -0.5rem -0.5rem' }} tags={tags} baseUrl={`${base}tags`} />
+    );
   }
 
   return (
@@ -50,18 +38,16 @@ function PostAbbrev({
             marginBottom: rhythm(1 / 4),
           }}
         >
-          <Link style={{ boxShadow: "none" }} to={slug} rel="bookmark">
+          <Link style={{ boxShadow: 'none' }} to={slug} rel="bookmark">
             {title}
           </Link>
         </h3>
         {tagsPart}
-        <small>{`${formatPostDate(date, lang)} • ${formatReadingTime(
-          timeToRead
-        )}`}</small>
+        <small>{`${formatPostDate(date, lang)} • ${formatReadingTime(timeToRead)}`}</small>
         {excerptPart}
       </header>
     </article>
-  )
+  );
 }
 
 PostAbbrev.propTypes = {
@@ -70,17 +56,18 @@ PostAbbrev.propTypes = {
   date: PropTypes.string.isRequired,
   timeToRead: PropTypes.number.isRequired,
   excerpt: PropTypes.string,
+  // eslint-disable-next-line react/forbid-prop-types
   tags: PropTypes.array,
   lang: PropTypes.string,
   base: PropTypes.string,
-}
+};
 
 PostAbbrev.defaultProps = {
   title: null,
   excerpt: null,
   tags: null,
-  lang: "en",
-  base: "",
-}
+  lang: 'en',
+  base: '',
+};
 
-export default PostAbbrev
+export default PostAbbrev;

@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-empty */
 export default function languageOper() {
   let preferredLang;
@@ -10,14 +11,14 @@ export default function languageOper() {
     preferredLang = localStorage.getItem('language');
   } catch (err) {}
 
-  window.__setPreferredLang = function(newLang) {
+  window.__setPreferredLang = newLang => {
     setLang(newLang);
     try {
       localStorage.setItem('language', newLang);
     } catch (err) {}
   };
 
-  window.__getPreferredLang = function() {
+  window.__getPreferredLang = () => {
     return preferredLang;
   };
 

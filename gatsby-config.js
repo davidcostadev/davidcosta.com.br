@@ -4,15 +4,15 @@ const {
   author,
   description,
   siteUrl,
-  twitter = "",
-  github = "",
-  medium = "",
-  facebook = "",
-  disqusShortName = "",
-  lang = "en",
+  twitter = '',
+  github = '',
+  medium = '',
+  facebook = '',
+  disqusShortName = '',
+  lang = 'en',
   googleTrackingId: trackingId,
-} = require("./config").site
-const supportedLanguages = require("./config").supportedLanguages
+} = require('./config').site;
+const { supportedLanguages } = require('./config');
 
 module.exports = {
   pathPrefix,
@@ -37,7 +37,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
-        name: "blog",
+        name: 'blog',
       },
     },
     {
@@ -71,7 +71,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    "gatsby-plugin-sitemap",
+    'gatsby-plugin-sitemap',
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -100,12 +100,12 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-i18n",
+      resolve: 'gatsby-plugin-i18n',
       options: {
         langKeyDefault: lang,
         useLangKeyLayout: false,
-        pagesPaths: ["/content/blog/"],
+        pagesPaths: ['/content/blog/'],
       },
     },
   ],
-}
+};

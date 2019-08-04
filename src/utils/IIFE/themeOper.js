@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable no-empty */
 export default function themeOper() {
   const onThemeChangeFuncObj = {};
@@ -14,23 +15,23 @@ export default function themeOper() {
     preferredTheme = localStorage.getItem('theme');
   } catch (err) {}
 
-  window.__setPreferredTheme = function(newTheme) {
+  window.__setPreferredTheme = newTheme => {
     setTheme(newTheme);
     try {
       localStorage.setItem('theme', newTheme);
     } catch (err) {}
   };
 
-  window.__subOnThemeChange = function(key, func) {
+  window.__subOnThemeChange = (key, func) => {
     onThemeChangeFuncObj[key] = func;
   };
 
-  window.__unsubOnThemeChange = function(key) {
+  window.__unsubOnThemeChange = key => {
     Reflect.deleteProperty(onThemeChangeFuncObj, key);
   };
 
   const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-  darkQuery.addListener(function(e) {
+  darkQuery.addListener(e => {
     window.__setPreferredTheme(e.matches ? 'dark' : 'light');
   });
 

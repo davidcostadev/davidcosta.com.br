@@ -4,14 +4,14 @@
 }
 
 .language:hover {
-  /* transform: scale(1.2); */
   cursor: pointer;
 }
 
 .language .icon {
-  fill: var(--textNormal);
   margin-right: 5px;
+  fill: var(--textNormal);
 }
+
 .language span {
   color: var(--textNormal);
 }
