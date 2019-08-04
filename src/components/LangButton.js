@@ -8,10 +8,10 @@ function LangButton({ lang, onClick, focused, ...restProps }) {
   const focusedClass = focused ? 'language-focused' : '';
   return (
     // eslint-disable-next-line jsx-a11y/interactive-supports-focus
-    <div className={`language ${focusedClass}`} onClick={onClick} role="button" {...restProps}>
+    <button type="button" className={`language ${focusedClass}`} onClick={onClick} {...restProps}>
       <IconLanguage className="icon" />
       <span>{lang}</span>
-    </div>
+    </button>
   );
 }
 

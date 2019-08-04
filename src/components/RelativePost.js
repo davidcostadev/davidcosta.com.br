@@ -1,18 +1,18 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { Link } from "gatsby"
+import { Link } from 'gatsby';
 
-import { rhythm } from "../utils/typography"
-import { formatPostDate } from "../utils/helpers"
+import { rhythm } from '../utils/typography';
+import { formatPostDate } from '../utils/helpers';
 
 function RelativePost({ postNode, lang }) {
   const {
     fields: { slug },
     frontmatter: { title, date },
-  } = postNode
+  } = postNode;
   return (
-    <Link style={{ boxShadow: "none" }} to={slug} rel="bookmark">
+    <Link style={{ boxShadow: 'none' }} to={slug} rel="bookmark">
       <article
         style={{
           marginBottom: rhythm(1 / 2),
@@ -38,16 +38,17 @@ function RelativePost({ postNode, lang }) {
         </header>
       </article>
     </Link>
-  )
+  );
 }
 
 RelativePost.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   postNode: PropTypes.object.isRequired,
   lang: PropTypes.string,
-}
+};
 
 RelativePost.defaultProps = {
-  lang: "",
-}
+  lang: '',
+};
 
-export default RelativePost
+export default RelativePost;

@@ -1,18 +1,18 @@
 .lang-icon {
-  margin-right: 20px;
-  box-shadow: none;
-  text-decoration: none;
-  color: rgb(255, 167, 196);
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   width: 20px;
   height: 20px;
-  display: flex;
+  margin-right: 20px;
   overflow: hidden;
-  position: relative;
+  color: rgb(255, 167, 196);
   font-size: 1.25rem;
-  align-items: center;
-  flex-shrink: 0;
-  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  user-select: none;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  text-decoration: none;
   border-radius: 50%;
-  justify-content: center;
+  box-shadow: none;
+  user-select: none;
 }

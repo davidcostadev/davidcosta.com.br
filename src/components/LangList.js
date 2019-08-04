@@ -22,6 +22,7 @@ function LangList({ languages, langKey, ...restProps }) {
 }
 
 LangList.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
   languages: PropTypes.object.isRequired,
   langKey: PropTypes.string.isRequired,
 };

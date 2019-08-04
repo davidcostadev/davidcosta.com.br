@@ -1,6 +1,7 @@
 .balloon {
   position: relative;
   width: 100%;
+
   /* border-top: 1px solid var(--textNormal);
   background-color: var(--textNormal) 70%; */
   padding: 0 18px;
@@ -8,27 +9,27 @@
 }
 
 .balloon::before {
-  content: '';
   position: absolute;
+  top: -9px;
+  right: 50px;
   display: block;
   width: 0;
   height: 0;
-  right: 50px;
-  top: -9px;
   border-right: 9px solid transparent;
   border-bottom: 9px solid var(--textNormal);
   border-left: 9px solid transparent;
+  content: "";
 }
 
 .balloon::after {
-  content: '';
   position: absolute;
+  top: -8px;
+  right: 50px;
   display: block;
   width: 0;
   height: 0;
-  right: 50px;
-  top: -8px;
   border-right: 9px solid transparent;
   border-bottom: 9px solid var(--bg);
   border-left: 9px solid transparent;
+  content: "";
 }

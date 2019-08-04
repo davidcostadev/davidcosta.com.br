@@ -1,20 +1,20 @@
-const path = require(`path`)
-const _ = require("lodash")
-const R = require("ramda")
-const { haveSameItem, getPreviousNextNode } = require("./src/utils/helpers")
-const getBaseUrl = require("./src/utils/getBaseUrl")
+const path = require(`path`);
+const _ = require('lodash');
+const R = require('ramda');
+const { haveSameItem, getPreviousNextNode } = require('./src/utils/helpers');
+const getBaseUrl = require('./src/utils/getBaseUrl');
 const {
-  site: { lang = "en" },
+  site: { lang = 'en' },
   supportedLanguages,
-} = require("./config")
+} = require('./config');
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+  const { createPage } = actions;
 
-  const blogIndex = path.resolve("./src/templates/blog-index.js")
-  const blogPost = path.resolve("./src/templates/blog-post.js")
-  const tagsTotal = path.resolve("./src/templates/tags.js")
-  const tagPage = path.resolve("./src/templates/tag-page.js")
+  const blogIndex = path.resolve('./src/templates/blog-index.js');
+  const blogPost = path.resolve('./src/templates/blog-post.js');
+  const tagsTotal = path.resolve('./src/templates/tags.js');
+  const tagPage = path.resolve('./src/templates/tag-page.js');
 
   return new Promise((resolve, reject) => {
     // Create index pages for all supported languages
@@ -25,17 +25,14 @@ exports.createPages = ({ graphql, actions }) => {
         context: {
           langKey,
         },
-      })
-    })
+      });
+    });
 
     resolve(
       graphql(
         `
           {
-            allMarkdownRemark(
-              sort: { fields: [frontmatter___date], order: DESC }
-              limit: 1000
-            ) {
+            allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
               edges {
                 node {
                   fields {
@@ -51,42 +48,38 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-        `
+        `,
       ).then(result => {
         if (result.errors) {
-          console.log(result.errors)
-          reject(result.errors)
+          // eslint-disable-next-line no-console
+          console.log(result.errors);
+          reject(result.errors);
         }
 
         // Create blog posts pages.
-        const posts = result.data.allMarkdownRemark.edges
+        const posts = result.data.allMarkdownRemark.edges;
 
         posts.forEach(post => {
           // posts in same language
-          const postLangKey = post.node.fields.langKey
-          const postsInSameLang = posts.filter(
-            ({ node }) => postLangKey === node.fields.langKey
-          )
+          const postLangKey = post.node.fields.langKey;
+          const postsInSameLang = posts.filter(({ node }) => postLangKey === node.fields.langKey);
           const indexInSameLang = postsInSameLang.findIndex(
-            p => p.node.fields.slug === post.node.fields.slug
-          )
-          const { previous, next } = getPreviousNextNode(
-            postsInSameLang,
-            indexInSameLang
-          )
+            p => p.node.fields.slug === post.node.fields.slug,
+          );
+          const { previous, next } = getPreviousNextNode(postsInSameLang, indexInSameLang);
 
           // posts in same tags
-          const postTags = post.node.frontmatter.tags
+          const postTags = post.node.frontmatter.tags;
           const postsInSameTag = posts.filter(({ node }) =>
-            haveSameItem(postTags, node.frontmatter.tags)
-          )
+            haveSameItem(postTags, node.frontmatter.tags),
+          );
           const indexInSameTag = postsInSameTag.findIndex(
-            p => p.node.fields.slug === post.node.fields.slug
-          )
-          const {
-            previous: previousInSameTag,
-            next: nextInSameTag,
-          } = getPreviousNextNode(postsInSameTag, indexInSameTag)
+            p => p.node.fields.slug === post.node.fields.slug,
+          );
+          const { previous: previousInSameTag, next: nextInSameTag } = getPreviousNextNode(
+            postsInSameTag,
+            indexInSameTag,
+          );
 
           createPage({
             path: post.node.fields.slug,
@@ -98,12 +91,12 @@ exports.createPages = ({ graphql, actions }) => {
               previousInSameTag,
               nextInSameTag,
             },
-          })
-        })
+          });
+        });
 
         // group by language
-        const byLangKey = R.groupBy(R.path(["node", "fields", "langKey"]))
-        const gpPosts = byLangKey(posts)
+        const byLangKey = R.groupBy(R.path(['node', 'fields', 'langKey']));
+        const gpPosts = byLangKey(posts);
         Object.keys(gpPosts).forEach(langKey => {
           // Make tags-total
           createPage({
@@ -112,19 +105,19 @@ exports.createPages = ({ graphql, actions }) => {
             context: {
               langKey,
             },
-          })
+          });
 
           // Tag pages:
-          let tags = []
-          const postsInSameLang = gpPosts[langKey]
+          let tags = [];
+          const postsInSameLang = gpPosts[langKey];
 
           _.each(postsInSameLang, edge => {
-            if (_.get(edge, "node.frontmatter.tags")) {
-              tags = tags.concat(edge.node.frontmatter.tags)
+            if (_.get(edge, 'node.frontmatter.tags')) {
+              tags = tags.concat(edge.node.frontmatter.tags);
             }
-          })
+          });
           // Eliminate duplicate tags
-          tags = _.uniq(tags)
+          tags = _.uniq(tags);
 
           // Make tag pages
           tags.forEach(tag => {
@@ -135,12 +128,12 @@ exports.createPages = ({ graphql, actions }) => {
                 tag,
                 langKey,
               },
-            })
-          })
-        })
+            });
+          });
+        });
 
-        return null
-      })
-    )
-  })
-}
+        return null;
+      }),
+    );
+  });
+};

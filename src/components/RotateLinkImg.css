@@ -5,9 +5,9 @@
 }
 
 .rotate-icon:hover {
-  background-color: transparent;
-  transform: rotate(360deg) scale(1.5);
   top: 5px;
-  cursor: pointer;
+  background-color: transparent;
   box-shadow: none;
+  transform: rotate(360deg) scale(1.5);
+  cursor: pointer;
 }

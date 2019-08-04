@@ -1,13 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import RotateLinkImg from "../RotateLinkImg"
-import dark from "./twitter-dark.png"
-import light from "./twitter-light.png"
-import withThemeFlag from "../../utils/withThemeFlag"
+import RotateLinkImg from '../RotateLinkImg';
+import dark from './twitter-dark.png';
+import light from './twitter-light.png';
+import withThemeFlag from '../../utils/withThemeFlag';
 
 function Twitter({ username, size, isLightTheme }) {
-  if (!username) return null
+  if (!username) return null;
 
   return (
     <RotateLinkImg
@@ -15,19 +15,19 @@ function Twitter({ username, size, isLightTheme }) {
       src={isLightTheme ? dark : light}
       size={size}
     />
-  )
+  );
 }
 
 Twitter.propTypes = {
   username: PropTypes.string,
   size: PropTypes.number,
   isLightTheme: PropTypes.bool,
-}
+};
 
 Twitter.defaultProps = {
   username: null,
   size: 24,
   isLightTheme: true,
-}
+};
 
-export default withThemeFlag(Twitter)
+export default withThemeFlag(Twitter);

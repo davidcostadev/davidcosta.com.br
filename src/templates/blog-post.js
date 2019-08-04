@@ -1,32 +1,35 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link, graphql } from "gatsby"
+/* eslint-disable react/no-danger */
+/* eslint-disable react/forbid-prop-types */
+/* eslint-disable react/jsx-one-expression-per-line */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, graphql } from 'gatsby';
 
-import Bio from "../components/Bio"
-import Layout from "../components/Layout"
-import SEO from "../components/SEO"
-import TagList from "../components/TagList"
-import RelativePosts from "../components/RelativePosts"
-import Disqus from "../components/Disqus"
+import Bio from '../components/Bio';
+import Layout from '../components/Layout';
+import SEO from '../components/SEO';
+import TagList from '../components/TagList';
+import RelativePosts from '../components/RelativePosts';
+import Disqus from '../components/Disqus';
 
-import { formatPostDate, formatReadingTime } from "../utils/helpers"
-import { rhythm, scale } from "../utils/typography"
-import getBaseUrl from "../utils/getBaseUrl"
+import { formatPostDate, formatReadingTime } from '../utils/helpers';
+import { rhythm, scale } from '../utils/typography';
+import getBaseUrl from '../utils/getBaseUrl';
 
 function BlogPostTemplate({ data, pageContext, location }) {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
-  const langs = data.site.siteMetadata.langs
-  const slug = data.markdownRemark.fields.slug
-  const { previous, next, previousInSameTag, nextInSameTag } = pageContext
-  const defaultLang = data.site.siteMetadata.lang
-  const langKey = post.fields.langKey
+  const post = data.markdownRemark;
+  const siteTitle = data.site.siteMetadata.title;
+  const { langs } = data.site.siteMetadata;
+  const { slug } = data.markdownRemark.fields;
+  const { previous, next, previousInSameTag, nextInSameTag } = pageContext;
+  const defaultLang = data.site.siteMetadata.lang;
+  const { langKey } = post.fields;
 
-  const base = getBaseUrl(defaultLang, langKey)
+  const base = getBaseUrl(defaultLang, langKey);
 
-  let tags
+  let tags;
   if (post.frontmatter.tags) {
-    tags = <TagList tags={post.frontmatter.tags} baseUrl={`${base}tags`} />
+    tags = <TagList tags={post.frontmatter.tags} baseUrl={`${base}tags`} />;
   }
 
   return (
@@ -59,10 +62,7 @@ function BlogPostTemplate({ data, pageContext, location }) {
       {tags}
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-      <RelativePosts
-        postNodes={[previousInSameTag, nextInSameTag]}
-        lang={langKey}
-      />
+      <RelativePosts postNodes={[previousInSameTag, nextInSameTag]} lang={langKey} />
 
       <hr
         style={{
@@ -96,22 +96,18 @@ function BlogPostTemplate({ data, pageContext, location }) {
         </li>
       </ul>
 
-      <Disqus
-        identifier={post.id}
-        show={post.frontmatter.disqus}
-        title={post.frontmatter.title}
-      />
+      <Disqus identifier={post.id} show={post.frontmatter.disqus} title={post.frontmatter.title} />
     </Layout>
-  )
+  );
 }
 
 BlogPostTemplate.propTypes = {
   data: PropTypes.object.isRequired,
   pageContext: PropTypes.object.isRequired,
   location: PropTypes.object.isRequired,
-}
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -141,4 +137,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

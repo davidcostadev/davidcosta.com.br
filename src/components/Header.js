@@ -1,25 +1,27 @@
-import React from "react"
-import { Link } from "gatsby"
-import ReadModeToggle from "./ReadModeToggle"
-import LanguageSelector from "./LanguageSelector"
-import "./Header.css"
+/* eslint-disable no-undef */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { Link } from 'gatsby';
+import ReadModeToggle from './ReadModeToggle';
+import LanguageSelector from './LanguageSelector';
+import './Header.css';
 
 const Header = ({ location, title, base, lang, slug, langs }) => {
-  const rootPath = `${__PATH_PREFIX__}${base}`
+  const rootPath = `${__PATH_PREFIX__}${base}`;
 
-  let brand
+  let brand;
   if (location.pathname === rootPath) {
     brand = (
       <h1 className="header__brand">
         <Link to={base}>{title}</Link>
       </h1>
-    )
+    );
   } else {
     brand = (
       <div className="header__brand">
         <Link to={base}>{title}</Link>
       </div>
-    )
+    );
   }
 
   return (
@@ -36,7 +38,7 @@ const Header = ({ location, title, base, lang, slug, langs }) => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

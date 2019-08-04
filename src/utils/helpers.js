@@ -13,9 +13,16 @@ function formatPostDate(date, lang) {
     return date;
   }
 
-  date = new Date(date);
-  const args = [lang, { day: 'numeric', month: 'long', year: 'numeric' }].filter(Boolean);
-  return date.toLocaleDateString(...args);
+  const newDate = new Date(date);
+  const args = [
+    lang,
+    {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+    },
+  ].filter(Boolean);
+  return newDate.toLocaleDateString(...args);
 }
 
 function haveSameItem(arr1 = [], arr2 = []) {
