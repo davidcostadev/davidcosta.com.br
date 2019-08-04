@@ -55,7 +55,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
-    "typeface-nanum-gothic": "^0.0.63",
+    "typeface-lora": "^0.0.72",
     "typeface-open-sans": "^0.0.75",
     "typography": "^0.16.19",
     "typography-theme-wordpress-2016": "^0.16.19"

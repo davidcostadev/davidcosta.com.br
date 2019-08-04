@@ -15,6 +15,8 @@ import { formatPostDate, formatReadingTime } from '../utils/helpers';
 import { rhythm, scale } from '../utils/typography';
 import getBaseUrl from '../utils/getBaseUrl';
 
+import './blog-post.css';
+
 function BlogPostTemplate({ data, pageContext, location }) {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
@@ -48,37 +50,41 @@ function BlogPostTemplate({ data, pageContext, location }) {
       slug={slug}
       breadcrumbs={[{ text: post.frontmatter.title }]}
     >
-      <SEO
-        lang={langKey}
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
-      />
-      <h1>{post.frontmatter.title}</h1>
-      <p
-        style={{
-          ...scale(-1 / 5),
-          display: `block`,
-          marginBottom: rhythm(1),
-          marginTop: rhythm(-1),
-        }}
-      >
-        {formatPostDate(post.frontmatter.date, langKey)}
-        {` • ${formatReadingTime(post.timeToRead)}`}
-      </p>
-      {tags}
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-
-      <footer>
-        <p>
-          <a href={discussUrl} target="_blank" rel="noopener noreferrer">
-            Discuss on Twitter
-          </a>
-          {` • `}
-          <a href={editUrl} target="_blank" rel="noopener noreferrer">
-            Edit on GitHub
-          </a>
+      <article>
+        <header>
+          <SEO
+            lang={langKey}
+            title={post.frontmatter.title}
+            description={post.frontmatter.description || post.excerpt}
+          />
+          <h1>{post.frontmatter.title}</h1>
+        </header>
+        <p
+          style={{
+            ...scale(-1 / 5),
+            display: `block`,
+            marginBottom: rhythm(1),
+            marginTop: rhythm(-1),
+          }}
+        >
+          {formatPostDate(post.frontmatter.date, langKey)}
+          {` • ${formatReadingTime(post.timeToRead)}`}
         </p>
-      </footer>
+        {tags}
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+
+        <footer>
+          <p>
+            <a href={discussUrl} target="_blank" rel="noopener noreferrer">
+              Discuss on Twitter
+            </a>
+            {` • `}
+            <a href={editUrl} target="_blank" rel="noopener noreferrer">
+              Edit on GitHub
+            </a>
+          </p>
+        </footer>
+      </article>
       <hr
         style={{
           marginBottom: rhythm(1),

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable import/prefer-default-export */
-import 'typeface-nanum-gothic';
+import 'typeface-lora';
 import 'typeface-open-sans';
 
 import React from 'react';

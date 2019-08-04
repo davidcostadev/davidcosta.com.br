@@ -1,0 +1,19 @@
+p {
+  font-weight: 400;
+  font-size: 1.125em;
+}
+
+article p {
+  font-family: var(--serifFont);
+}
+
+article p:first-of-type {
+  margin-top: 2.5rem;
+}
+
+@media (min-width: 767px) {
+  p {
+    font-size: 1.375em;
+    line-height: 1.7;
+  }
+}

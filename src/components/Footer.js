@@ -11,7 +11,7 @@ function Footer() {
         textAlign: 'center',
       }}
     >
-      <p>
+      <div>
         <span style={{ marginRight: 5 }}>Made of</span>
         <a
           href="https://github.com/thundermiracle/gatsby-simple-blog"
@@ -20,7 +20,7 @@ function Footer() {
         >
           gatsby-simple-blog
         </a>
-      </p>
+      </div>
     </footer>
   );
 }

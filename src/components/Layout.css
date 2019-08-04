@@ -1,7 +1,7 @@
 .layout {
   min-height: 100vh;
   color: var(--textNormal);
-  font-family: var(--systemFont);
+  font-family: var(--sansSerifFont);
   background: var(--bg);
   transition: color 0.2s ease-out, background 0.2s ease-out;
 }
@@ -12,5 +12,5 @@
   margin: 0 auto;
   margin-right: auto;
   margin-left: auto;
-  padding: 20px 40px 40px;
+  padding: 20px 24px 40px;
 }

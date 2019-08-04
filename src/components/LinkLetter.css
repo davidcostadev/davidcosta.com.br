@@ -10,7 +10,7 @@
   overflow: hidden;
   color: rgb(255, 167, 196);
   font-size: 1.25rem;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: var(--sansSerifFont);
   text-decoration: none;
   border-radius: 50%;
   box-shadow: none;
