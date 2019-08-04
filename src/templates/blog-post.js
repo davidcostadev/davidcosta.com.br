@@ -31,6 +31,13 @@ function BlogPostTemplate({ data, pageContext, location }) {
     tags = <TagList tags={post.frontmatter.tags} baseUrl={`${base}tags`} />;
   }
 
+  const justSlug = slug.slice(1, slug.length - 1).split('/')[1];
+
+  const discussUrl = `https://mobile.twitter.com/search?q=${encodeURIComponent(
+    `https://davidcosta.com.br${slug}`,
+  )}`;
+  const editUrl = `https://github.com/davidcostadev/davidcosta.com.br/edit/master/content/blog/${justSlug}/index.${langKey}.md`;
+
   return (
     <Layout
       base={base}
@@ -61,8 +68,17 @@ function BlogPostTemplate({ data, pageContext, location }) {
       {tags}
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
-      <RelativePosts postNodes={[previousInSameTag, nextInSameTag]} lang={langKey} />
-
+      <footer>
+        <p>
+          <a href={discussUrl} target="_blank" rel="noopener noreferrer">
+            Discuss on Twitter
+          </a>
+          {` • `}
+          <a href={editUrl} target="_blank" rel="noopener noreferrer">
+            Edit on GitHub
+          </a>
+        </p>
+      </footer>
       <hr
         style={{
           marginBottom: rhythm(1),
@@ -94,6 +110,7 @@ function BlogPostTemplate({ data, pageContext, location }) {
           )}
         </li>
       </ul>
+      <RelativePosts postNodes={[previousInSameTag, nextInSameTag]} lang={langKey} />
     </Layout>
   );
 }
