@@ -11,9 +11,20 @@ article p:first-of-type {
   margin-top: 2.5rem;
 }
 
+article footer p {
+  font-size: 1em;
+}
+
 @media (min-width: 767px) {
   p {
-    font-size: 1.375em;
+    font-size: 1.250em;
+    line-height: 1.7;
+  }
+}
+
+@media (min-width: 767px) {
+  p {
+    font-size: 1.250em;
     line-height: 1.7;
   }
 }

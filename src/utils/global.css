@@ -15,6 +15,9 @@ body {
 
   --serifFont: "Lora", serif;
   --sansSerifFont: "Open Sans", sans-serif;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
 body.light {
@@ -38,8 +41,6 @@ body.light {
 }
 
 body.dark {
-  -webkit-font-smoothing: antialiased;
-
   --bg: #212121;
   --header: #FFFFFF;
   --textNormal: rgba(255, 255, 255, 0.88);
