@@ -1,14 +1,13 @@
 ---
 title: Minha experiencia inicial com testes automatizados
 date: '2019-10-27T18:35:42.655Z'
-lang: en
+lang: pt-br
 tags: ['life', 'tests']
 description: Um pouco da experiêcia com testes automatizados e contar sobre minha experiência inicial com isso.
 ---
 
-### Objetivo
 
-É contar um pouco de experiência com testes automatizados e contar sobre o meu primeiro contato com isso.
+Meu objetivo ccom esse artigo é contar um pouco de experiência com testes automatizados e contar sobre o meu primeiro contato com isso.
 
 ---
 
