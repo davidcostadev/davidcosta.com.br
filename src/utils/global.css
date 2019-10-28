@@ -1,5 +1,5 @@
 body {
-  --purple1: #892CE5;
+  --purple1: #B37EE7;
   --purple2: #7F53AA;
   --purple3: #5B1D99;
   --purple4: #AB70E5;
@@ -28,7 +28,7 @@ body.light {
   --hr: hsla(0, 0%, 0%, 0.2);
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
   --inlineCode-text: #1A1A1A;
-  --tag-bg: #F7A046;
+  --tag-bg: var(--purple);
   --tag-color: #FFFFFF;
   --breadcrumbsTextColor: #A1C4E9;
   --breadcrumbsTextColorActive: #888888;
@@ -50,7 +50,7 @@ body.dark {
   --hr: hsla(0, 0%, 100%, 0.2);
   --inlineCode-bg: hsl(222, 14%, 25%);
   --inlineCode-text: #E6E6E6;
-  --tag-bg: rgb(143, 91, 35);
+  --tag-bg: var(--purple);
   --tag-color: #DDDDDD;
   --breadcrumbsTextColor: #D1C4E9;
   --breadcrumbsTextColorActive: #EEEEEE;
