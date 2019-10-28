@@ -22,8 +22,9 @@ article hr {
   width: 40%;
   margin-right: auto;
   margin-left: auto;
-  border-style: ridge;
-  border-width: 1px;
+  background-color: var(--hr-color);
+  border-width: 0;
+
 }
 
 article header h1 {

@@ -6,17 +6,7 @@
   --body-font-family: "Lora", serif;
   --header-font-family: "Open Sans", sans-serif;
   --header-color: #212121;
-}
 
-
-body {
-  color: var(--base-color);
-  font-size: var(--base-font-size);
-  font-family: var(--base-font-family);
-}
-
-
-body {
   --purple1: #B37EE7;
   --purple2: #7F53AA;
   --purple3: #5B1D99;
@@ -32,8 +22,16 @@ body {
   --breadcrumbsDividerSize: 20px;
 }
 
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
 body.light {
   --bg: #FFFFFF;
+  --header-color: #212121;
+  --base-color: #444443;
+  --hr-color: #212121;
+
   --header: var(--purple);
   --textNormal: #222222;
   --textTitle: #222222;
@@ -53,10 +51,11 @@ body.light {
 }
 
 body.dark {
-  -webkit-font-smoothing: antialiased;
-
   --bg: #212121;
-  --header: #FFFFFF;
+  --header-color: #FFFFFF;
+  --base-color: #CCCCCC;
+  --hr-color: #CCCCCC;
+
   --textNormal: rgba(255, 255, 255, 0.88);
   --textTitle: #FFFFFF;
   --link: var(--purpleLight);
@@ -70,6 +69,14 @@ body.dark {
   --breadcrumbsTextColor: #D1C4E9;
   --breadcrumbsTextColorActive: #EEEEEE;
 }
+
+
+body {
+  color: var(--base-color);
+  font-size: var(--base-font-size);
+  font-family: var(--base-font-family);
+}
+
 
 a {
   color: var(--link);
