@@ -6,8 +6,6 @@ tags: ['life', 'tests']
 description: A little about my history with automatized tests and my initial experience with it.
 ---
 
-### Objective
-
 My goal with this article is to talk a little about my history with automatized tests and my initial experience with it.
 
 ---
@@ -25,5 +23,3 @@ Since then, I have been looking to test with another side and start to learn and
 ---
 
 I hope that you enjoy this sorted history of my experience with tests. In the future, I pretend to talk more about this topic. If you have a different experience or similar please I would like to hear it. How is writing testing for you? And How much value do you see with this for the first time?
-
-
