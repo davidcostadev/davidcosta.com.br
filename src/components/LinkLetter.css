@@ -10,7 +10,7 @@
   overflow: hidden;
   color: rgb(255, 167, 196);
   font-size: 1.25rem;
-  font-family: var(--sansSerifFont);
+  font-family: var(--sansbase-font-family);
   text-decoration: none;
   border-radius: 50%;
   box-shadow: none;

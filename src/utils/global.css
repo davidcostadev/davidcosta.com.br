@@ -1,3 +1,21 @@
+:root {
+  --base-font-size: 16px;
+  --base-font-weight: 400;
+  --base-color: #444443;
+  --base-font-family: "Open Sans", sans-serif;
+  --body-font-family: "Lora", serif;
+  --header-font-family: "Open Sans", sans-serif;
+  --header-color: #212121;
+}
+
+
+body {
+  color: var(--base-color);
+  font-size: var(--base-font-size);
+  font-family: var(--base-font-family);
+}
+
+
 body {
   --purple1: #B37EE7;
   --purple2: #7F53AA;
@@ -12,9 +30,6 @@ body {
   --pink: rgb(255, 167, 196);
   background-color: var(--bg);
   --breadcrumbsDividerSize: 20px;
-
-  --serifFont: "Lora", serif;
-  --sansSerifFont: "Open Sans", sans-serif;
 }
 
 body.light {
@@ -76,8 +91,13 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: 400;
-  font-family: var(--sansSerifFont);
+  font-weight: 700;
+  font-family: var(--header-font-family);
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 1.875rem;
 }
 
 /*

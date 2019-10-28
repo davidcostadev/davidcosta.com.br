@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  max-width: 800px;
+  max-width: 650px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -28,7 +28,7 @@
   margin-bottom: 0;
   font-weight: normal;
   font-size: 1.5em;
-  font-family: var(--sansSerifFont);
+  font-family: var(--sansbase-font-family);
   line-height: 1.5em;
 }
 

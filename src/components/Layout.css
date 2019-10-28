@@ -1,14 +1,13 @@
 .layout {
   min-height: 100vh;
-  color: var(--textNormal);
-  font-family: var(--sansSerifFont);
+  font-family: var(--base-font-family);
   background: var(--bg);
   transition: color 0.2s ease-out, background 0.2s ease-out;
 }
 
 .layout__container {
   width: 100%;
-  max-width: 800px;
+  max-width: 650px;
   margin: 0 auto;
   margin-right: auto;
   margin-left: auto;

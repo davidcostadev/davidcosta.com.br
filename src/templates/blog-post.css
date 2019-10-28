@@ -4,7 +4,7 @@ p {
 }
 
 article p {
-  font-family: var(--serifFont);
+  font-family: var(--body-font-family);
 }
 
 article p:first-of-type {
@@ -13,7 +13,19 @@ article p:first-of-type {
 
 @media (min-width: 767px) {
   p {
-    font-size: 1.375em;
+    font-size: 1.25em;
     line-height: 1.7;
   }
+}
+
+article hr {
+  width: 40%;
+  margin-right: auto;
+  margin-left: auto;
+  border-style: ridge;
+  border-width: 1px;
+}
+
+article header h1 {
+  color: var(--header-color);
 }
