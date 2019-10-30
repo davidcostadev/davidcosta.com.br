@@ -53,7 +53,7 @@ const TagPageTemplate = ({ pageContext, data, location }) => {
       </main>
       <div style={{ marginTop: 50 }} />
       <aside>
-        <Bio />
+        <Bio langKey={langKey} />
       </aside>
     </Layout>
   );

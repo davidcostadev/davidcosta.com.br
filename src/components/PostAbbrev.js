@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'gatsby';
 
 import { rhythm } from '../utils/typography';
+import { useText } from '../context/TextContext';
 import { formatPostDate, formatReadingTime } from '../utils/helpers';
 
 import TagList from './TagList';
@@ -28,6 +29,8 @@ function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, lang, base }
     );
   }
 
+  const { tRead } = useText(lang);
+
   return (
     <article>
       <header>
@@ -43,7 +46,7 @@ function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, lang, base }
           </Link>
         </h3>
         {tagsPart}
-        <small>{`${formatPostDate(date, lang)} • ${formatReadingTime(timeToRead)}`}</small>
+        <small>{`${formatPostDate(date, lang)} • ${formatReadingTime(timeToRead, tRead)}`}</small>
         {excerptPart}
       </header>
     </article>

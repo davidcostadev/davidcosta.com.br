@@ -6,21 +6,25 @@
  */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
 
 import './Bio.css';
 import { rhythm } from '../utils/typography';
+import { useText } from '../context/TextContext';
 
 import SocialBar from './SocialBar';
 
-function Bio() {
+function Bio({ langKey }) {
+  const { tDescription } = useText(langKey);
+
   return (
     <StaticQuery
       // eslint-disable-next-line no-use-before-define
       query={bioQuery}
       render={data => {
-        const { author, description } = data.site.siteMetadata;
+        const { author } = data.site.siteMetadata;
         return (
           <div className="bio">
             <Image
@@ -35,8 +39,8 @@ function Bio() {
               }}
             />
             <div className="description">
-              <p>{description}</p>
-              <SocialBar />
+              <p>{tDescription}</p>
+              <SocialBar langKey={langKey} />
             </div>
           </div>
         );
@@ -44,6 +48,10 @@ function Bio() {
     />
   );
 }
+
+Bio.propTypes = {
+  langKey: PropTypes.string.isRequired,
+};
 
 const bioQuery = graphql`
   query BioQuery {

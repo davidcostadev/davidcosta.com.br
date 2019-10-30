@@ -14,6 +14,7 @@ import RelativePosts from '../components/RelativePosts';
 import { formatPostDate, formatReadingTime } from '../utils/helpers';
 import { rhythm, scale } from '../utils/typography';
 import getBaseUrl from '../utils/getBaseUrl';
+import { useText } from '../context/TextContext';
 
 import './blog-post.css';
 
@@ -39,6 +40,8 @@ function BlogPostTemplate({ data, pageContext, location }) {
     `https://davidcosta.com.br${slug}`,
   )}`;
   const editUrl = `https://github.com/davidcostadev/davidcosta.com.br/edit/master/content/blog/${justSlug}/index.${langKey}.md`;
+
+  const { tDiscuss, tEdit, tRead } = useText(langKey);
 
   return (
     <Layout
@@ -68,19 +71,19 @@ function BlogPostTemplate({ data, pageContext, location }) {
           }}
         >
           {formatPostDate(post.frontmatter.date, langKey)}
-          {` • ${formatReadingTime(post.timeToRead)}`}
+          {` • ${formatReadingTime(post.timeToRead, tRead)}`}
         </p>
         {tags}
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
 
         <footer>
           <p>
-            <a href={discussUrl} target="_blank" rel="noopener noreferrer">
-              Discuss on Twitter
+            <a href={discussUrl} target="_blank" rel="noopener noreferrer" title={tDiscuss}>
+              {tDiscuss}
             </a>
             {` • `}
-            <a href={editUrl} target="_blank" rel="noopener noreferrer">
-              Edit on GitHub
+            <a href={editUrl} target="_blank" rel="noopener noreferrer" title={tEdit}>
+              {tEdit}
             </a>
           </p>
         </footer>
@@ -90,7 +93,7 @@ function BlogPostTemplate({ data, pageContext, location }) {
           marginBottom: rhythm(1),
         }}
       />
-      <Bio />
+      <Bio langKey={langKey} />
 
       <ul
         style={{

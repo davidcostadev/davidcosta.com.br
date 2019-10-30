@@ -1,6 +1,7 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 
+import { useText } from '../context/TextContext';
 import './SocialBar.css';
 
 const socialQuery = graphql`
@@ -16,7 +17,9 @@ const socialQuery = graphql`
   }
 `;
 
-function SocialBar() {
+function SocialBar({ langKey }) {
+  const {tFollow } = useText(langKey)
+
   return (
     <StaticQuery
       query={socialQuery}
@@ -24,7 +27,7 @@ function SocialBar() {
         const { twitter, github } = data.site.siteMetadata.social;
         return (
           <div className="social-bar">
-            <span>Follow me on: </span>
+            <span>{tFollow}: </span>
             <a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer">
               Twitter
             </a>

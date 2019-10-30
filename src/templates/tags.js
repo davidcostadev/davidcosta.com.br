@@ -48,7 +48,7 @@ const TagsPage = ({
       breadcrumbs={[{ text: tTags }]}
     >
       <aside>
-        <Bio />
+        <Bio langKey={langKey} />
       </aside>
       <Helmet title={tTags} />
       <div>

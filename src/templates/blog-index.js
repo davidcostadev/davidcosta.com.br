@@ -19,15 +19,14 @@ function BlogIndex({ data, location, pageContext }) {
 
   const base = getBaseUrl(defaultLang, langKey);
 
-  const { tIndTitle, taIndKeywords, tfIndCountPosts } = useText(langKey);
+  const { tIndTitle, taIndKeywords } = useText(langKey);
 
   return (
     <Layout lang={langKey} base={base} location={location} title={siteTitle} langs={langs}>
       <SEO lang={langKey} title={tIndTitle} keywords={taIndKeywords} />
       <aside>
-        <Bio />
+        <Bio langKey={langKey} />
       </aside>
-      <h4>{tfIndCountPosts(data.allMarkdownRemark.totalCount)}</h4>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
