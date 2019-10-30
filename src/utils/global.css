@@ -20,6 +20,9 @@
   --pink: rgb(255, 167, 196);
   background-color: var(--bg);
   --breadcrumbsDividerSize: 20px;
+
+  --primary-30: #320C43;
+  --primary-8: #19111D;
 }
 
 body {
@@ -51,10 +54,10 @@ body.light {
 }
 
 body.dark {
-  --bg: #212121;
-  --header-color: #FFFFFF;
-  --base-color: #CCCCCC;
-  --hr-color: #CCCCCC;
+  --bg: var(--primary-8);
+  --header-color: hsla(0, 0%, 100%, 0.9);
+  --base-color: hsla(0, 0%, 100%, 0.8);
+  --hr-color: hsla(0, 0%, 100%, 0.4);
 
   --textNormal: rgba(255, 255, 255, 0.88);
   --textTitle: #FFFFFF;
@@ -68,15 +71,15 @@ body.dark {
   --tag-color: #DDDDDD;
   --breadcrumbsTextColor: #D1C4E9;
   --breadcrumbsTextColorActive: #EEEEEE;
-}
 
+  --purple: var(--primary-30);
+}
 
 body {
   color: var(--base-color);
   font-size: var(--base-font-size);
   font-family: var(--base-font-family);
 }
-
 
 a {
   color: var(--link);
