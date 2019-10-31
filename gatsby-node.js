@@ -70,8 +70,9 @@ exports.createPages = ({ graphql, actions }) => {
 
           // posts in same tags
           const postTags = post.node.frontmatter.tags;
-          const postsInSameTag = posts.filter(({ node }) =>
-            haveSameItem(postTags, node.frontmatter.tags),
+          const postsInSameTag = posts.filter(
+            ({ node }) =>
+              haveSameItem(postTags, node.frontmatter.tags) && postLangKey === node.fields.langKey,
           );
           const indexInSameTag = postsInSameTag.findIndex(
             p => p.node.fields.slug === post.node.fields.slug,
