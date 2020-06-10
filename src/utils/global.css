@@ -43,7 +43,7 @@ body.light {
   --linkActive: var(--purpleDark);
   --hr: hsla(0, 0%, 0%, 0.2);
   --inlineCode-bg: rgba(255, 229, 100, 0.2);
-  --inlineCode-text: #1A1A1A;
+  --inlineCode-text: #E6E6E6;
   --tag-bg: var(--purple);
   --tag-color: #FFFFFF;
   --breadcrumbsTextColor: #A1C4E9;
@@ -259,9 +259,13 @@ pre[data-line] {
   margin-bottom: 1.75rem;
   margin-left: -1.3125rem;
   overflow: auto;
-  background: #011627;
+  background: var(--purple6);
   border-radius: 10px;
   -webkit-overflow-scrolling: touch;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+  background: var(--purple6) !important;
 }
 
 @media (max-width: 672px) {
