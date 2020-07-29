@@ -1,5 +1,5 @@
 ---
-title: Using Popper as Tooltip TypeScript and styled-components
+title: Usando Popper como Tooltip com TypeScript e styled-component
 date: '2020-07-29T14:47:04.046Z'
 lang: pt-br
 tags: ['javascript', 'typescript', 'tooltip', 'styled-components']
