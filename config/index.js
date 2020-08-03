@@ -13,7 +13,7 @@ const site = {
 
 const text = {
   tDescription:
-    'Student of Information Systems, JavaScript Engineer, maintainer of withmoney project, fastexpress package and works at EvoluxBR',
+    'JavaScript Engineer, maintainer of withmoney project, fastexpress package and works at Papa',
   tHome: 'Home',
   tRelativePosts: 'Relative Posts',
   tFollowTwitterDescription: 'You should follow him on Twitter',
@@ -31,7 +31,7 @@ const text = {
   tRead: 'read',
   'pt-br': {
     tDescription:
-      'Estudante de Sistemas de Informação, Engenheiro JavaScript, mantenedor do projeto withmoney, do pacote do fastexpress e trabalha na EvoluxBR',
+      'Frontend Enginneer, mantenedor do projeto withmoney, do pacote do fastexpress e trabalha na Papa',
     tHome: 'Home',
     tRelativePosts: 'Posts Relacionados',
     tTags: 'Tags',
