@@ -56,6 +56,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-typography": "^0.16.19",
+    "styled-components": "^5.1.1",
     "typeface-lora": "^0.0.72",
     "typeface-open-sans": "^0.0.75",
     "typography": "^0.16.19",

@@ -9,8 +9,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
+import styled from 'styled-components';
 
-import './Bio.css';
 import { rhythm } from '../utils/typography';
 import { useText } from '../context/TextContext';
 
@@ -26,11 +26,10 @@ function Bio({ langKey }) {
       render={data => {
         const { author } = data.site.siteMetadata;
         return (
-          <div className="bio">
-            <Image
+          <Wrapper>
+            <Picture
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
-              className="pic"
               style={{
                 marginRight: rhythm(1 / 2),
               }}
@@ -38,11 +37,11 @@ function Bio({ langKey }) {
                 borderRadius: '50%',
               }}
             />
-            <div className="description">
+            <Description>
               <p>{tDescription}</p>
               <SocialBar langKey={langKey} />
-            </div>
-          </div>
+            </Description>
+          </Wrapper>
         );
       }}
     />
@@ -68,6 +67,24 @@ const bioQuery = graphql`
         description
       }
     }
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+const Picture = styled(Image)`
+  min-width: 70px;
+  margin-bottom: 0;
+  border-radius: 100%;
+`;
+
+const Description = styled.div`
+  width: 100%;
+
+  p {
+    margin-bottom: 1rem;
   }
 `;
 
