@@ -1,8 +1,9 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import { useText } from '../context/TextContext';
-import './SocialBar.css';
 
 const socialQuery = graphql`
   query SocialQuery {
@@ -18,7 +19,7 @@ const socialQuery = graphql`
 `;
 
 function SocialBar({ langKey }) {
-  const {tFollow } = useText(langKey)
+  const { tFollow } = useText(langKey);
 
   return (
     <StaticQuery
@@ -26,18 +27,42 @@ function SocialBar({ langKey }) {
       render={data => {
         const { twitter, github } = data.site.siteMetadata.social;
         return (
-          <div className="social-bar">
-            <span>{tFollow}: </span>
-            <a href={`https://twitter.com/${twitter}`} target="_blank" rel="noopener noreferrer">
+          <Wrapper>
+            <span>
+              {tFollow}
+              {': '}
+            </span>
+            <StaticLink
+              href={`https://twitter.com/${twitter}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Twitter
-            </a>
-            <a href={`https://github.com/${github}`} target="_blank" rel="noopener noreferrer">
+            </StaticLink>
+            <StaticLink
+              href={`https://github.com/${github}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Github
-            </a>
-          </div>
+            </StaticLink>
+          </Wrapper>
         );
       }}
     />
   );
 }
+
+SocialBar.propTypes = {
+  langKey: PropTypes.string.isRequired,
+};
+
+const Wrapper = styled.div`
+  display: flex;
+`;
+
+const StaticLink = styled.a`
+  margin-left: 15px;
+`;
+
 export default SocialBar;

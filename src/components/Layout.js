@@ -1,15 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import HeaderPage from './Header';
 import Footer from './Footer';
 
-import './Layout.css';
-
 function Layout({ children, location, title, base, lang, langs, slug }) {
   return (
-    <div className="layout">
+    <Wrapper>
       <HeaderPage
         base={base}
         location={location}
@@ -18,11 +17,11 @@ function Layout({ children, location, title, base, lang, langs, slug }) {
         langs={langs}
         slug={slug || location.pathname}
       />
-      <div className="layout__container">
+      <Container>
         {children}
         <Footer />
-      </div>
-    </div>
+      </Container>
+    </Wrapper>
   );
 }
 
@@ -40,5 +39,21 @@ Layout.defaultProps = {
   base: '',
   lang: null,
 };
+
+const Wrapper = styled.div`
+  min-height: 100vh;
+  font-family: var(--base-font-family);
+  background: var(--bg);
+  transition: color 0.2s ease-out, background 0.2s ease-out;
+`;
+
+const Container = styled.div`
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 1em;
+`;
 
 export default Layout;

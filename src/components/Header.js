@@ -2,9 +2,9 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
 import ReadModeToggle from './ReadModeToggle';
 import LanguageSelector from './LanguageSelector';
-import './Header.css';
 
 const Header = ({ location, title, base, lang, slug, langs }) => {
   const rootPath = `${__PATH_PREFIX__}${base}`;
@@ -12,33 +12,75 @@ const Header = ({ location, title, base, lang, slug, langs }) => {
   let brand;
   if (location.pathname === rootPath) {
     brand = (
-      <h1 className="header__brand">
+      <Brand as="h1">
         <Link to={base}>{title}</Link>
-      </h1>
+      </Brand>
     );
   } else {
     brand = (
-      <div className="header__brand">
+      <Brand>
         <Link to={base}>{title}</Link>
-      </div>
+      </Brand>
     );
   }
 
   return (
-    <header className="header">
-      <div className="header__container">
+    <Wrapper>
+      <Container>
         {brand}
-        <div className="header__menu">
-          <div className="header__language-switch">
+        <Menu>
+          <LanguageSwitch>
             <LanguageSelector langKey={lang} slug={slug} langs={langs} />
-          </div>
-          <div className="header__theme">
+          </LanguageSwitch>
+          <Theme>
             <ReadModeToggle />
-          </div>
-        </div>
-      </div>
-    </header>
+          </Theme>
+        </Menu>
+      </Container>
+    </Wrapper>
   );
 };
+
+const Brand = styled.div`
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: normal;
+  font-size: 1.5em;
+  font-family: var(--sansbase-font-family);
+  line-height: 1.5em;
+
+  a {
+    color: #ffffff;
+  }
+`;
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 20px;
+`;
+
+const Menu = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const LanguageSwitch = styled.div`
+  margin-right: 15px;
+`;
+
+const Theme = styled.div`
+  display: flex;
+`;
+
+const Wrapper = styled.header`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #ffffff;
+  background-color: var(--purple);
+`;
 
 export default Header;

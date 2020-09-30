@@ -4,9 +4,7 @@
  * Forked from https://github.com/aaronshaf/react-toggle/
  * + applied https://github.com/aaronshaf/react-toggle/pull/90
  * */
-
-import './Toggle.css';
-
+import styled, { css } from 'styled-components';
 import React, { PureComponent } from 'react';
 
 // Copyright 2015-present Drifty Co.
@@ -157,7 +155,7 @@ export default class Toggle extends PureComponent {
       this.state.hasFocus ? ' react-toggle--focus' : ''
     }${this.props.disabled ? ' react-toggle--disabled' : ''}${className ? ` ${className}` : ''}`;
     return (
-      <div
+      <ReactToggle
         className={classes}
         onClick={this.handleClick}
         onTouchStart={this.handleTouchStart}
@@ -165,13 +163,21 @@ export default class Toggle extends PureComponent {
         onTouchEnd={this.handleTouchEnd}
         onTouchCancel={this.handleTouchCancel}
       >
-        <div className="react-toggle-track">
-          <div className="react-toggle-track-check">{this.getIcon('checked')}</div>
-          <div className="react-toggle-track-x">{this.getIcon('unchecked')}</div>
-        </div>
-        <div className="react-toggle-thumb" />
+        <ReactToggleTrack className="react-toggle-track">
+          <ReactToggleTrackCheck className="react-toggle-track-check" checked={this.state.checked}>
+            {this.getIcon('checked')}
+          </ReactToggleTrackCheck>
+          <ReactToggleTrackX className="react-toggle-track-x">
+            {this.getIcon('unchecked')}
+          </ReactToggleTrackX>
+        </ReactToggleTrack>
+        <ReactToggleThumb
+          className="react-toggle-thumb"
+          checked={this.state.checked}
+          hasFocus={this.state.hasFocus}
+        />
 
-        <input
+        <ReactToggleScreenreaderOnly
           {...inputProps}
           ref={ref => {
             this.input = ref;
@@ -182,7 +188,114 @@ export default class Toggle extends PureComponent {
           type="checkbox"
           aria-label="Switch between Dark and Light mode"
         />
-      </div>
+      </ReactToggle>
     );
   }
 }
+
+const ReactToggle = styled.div`
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  user-select: none;
+  touch-action: pan-x;
+
+  -webkit-touch-callout: none;
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: transparent;
+`;
+
+const ReactToggleScreenreaderOnly = styled.input`
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+`;
+
+const ReactToggleTrack = styled.div`
+  width: 50px;
+  height: 24px;
+  padding: 0;
+  background-color: hsl(222, 14%, 7%);
+  border-radius: 30px;
+  transition: all 0.2s ease;
+`;
+
+const ReactToggleTrackX = styled.div`
+  position: absolute;
+  top: 0px;
+  right: 5px;
+  bottom: 0px;
+  width: 17px;
+  height: 17px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+
+  ${({ checked }) =>
+    checked &&
+    css`
+      opacity: 0;
+    `}
+`;
+
+const ReactToggleTrackCheck = styled.div`
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 5px;
+  width: 17px;
+  height: 17px;
+  margin-top: auto;
+  margin-bottom: auto;
+  line-height: 0;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+
+  ${({ checked }) =>
+    checked &&
+    css`
+      opacity: 1;
+      transition: opacity 0.25s ease;
+    `}
+`;
+
+const ReactToggleThumb = styled.div`
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  box-sizing: border-box;
+  width: 22px;
+  height: 22px;
+  background-color: #fafafa;
+  border-radius: 50%;
+  transform: translateX(0);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+
+  ${({ checked }) =>
+    checked &&
+    css`
+      border-color: #19ab27;
+      transform: translateX(26px);
+    `}
+
+  ${({ hasFocus }) =>
+    hasFocus &&
+    css`
+      box-shadow: 0px 0px 2px 3px rgb(255, 167, 196);
+    `}
+
+  &:active {
+    box-shadow: 0px 0px 5px 5px rgb(255, 167, 196);
+  }
+`;
