@@ -30,9 +30,6 @@ function Bio({ langKey }) {
             <Picture
               fixed={data.avatar.childImageSharp.fixed}
               alt={author}
-              style={{
-                marginRight: rhythm(1 / 2),
-              }}
               imgStyle={{
                 borderRadius: '50%',
               }}
@@ -78,6 +75,7 @@ const Picture = styled(Image)`
   min-width: 70px;
   margin-bottom: 0;
   border-radius: 100%;
+  margin-right: 0.875rem;
 `;
 
 const Description = styled.div`

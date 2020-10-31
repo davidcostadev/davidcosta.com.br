@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import { Link } from 'gatsby';
 
@@ -24,9 +25,7 @@ function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, lang, base }
 
   let tagsPart;
   if (tags) {
-    tagsPart = (
-      <TagList style={{ margin: '0.5rem 0 -0.5rem -0.5rem' }} tags={tags} baseUrl={`${base}tags`} />
-    );
+    tagsPart = <TagList tags={tags} baseUrl={`${base}tags`} />;
   }
 
   const { tRead } = useText(lang);
@@ -34,17 +33,11 @@ function PostAbbrev({ slug, title, date, timeToRead, excerpt, tags, lang, base }
   return (
     <article>
       <header>
-        <h3
-          style={{
-            fontFamily: '"Nanum Gothic", sans-serif',
-            fontSize: rhythm(1),
-            marginBottom: rhythm(1 / 4),
-          }}
-        >
-          <Link style={{ boxShadow: 'none' }} to={slug} rel="bookmark">
+        <Title>
+          <StyledLink to={slug} rel="bookmark">
             {title}
-          </Link>
-        </h3>
+          </StyledLink>
+        </Title>
         {tagsPart}
         <small>{`${formatPostDate(date, lang)} • ${formatReadingTime(timeToRead, tRead)}`}</small>
         {excerptPart}
@@ -72,5 +65,15 @@ PostAbbrev.defaultProps = {
   lang: 'en',
   base: '',
 };
+
+const Title = styled.h3`
+  font-family: 'Nanum Gothic', sans-serif;
+  font-size: 1.75rem;
+  margin-bottom: 0.4375rem;
+`;
+
+const StyledLink = styled(Link)`
+  boxshadow: 'none';
+`;
 
 export default PostAbbrev;
