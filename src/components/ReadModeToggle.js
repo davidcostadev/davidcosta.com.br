@@ -9,7 +9,6 @@ import withThemeFlag from '../utils/withThemeFlag';
 
 // eslint-disable-next-line react/prop-types
 function ReadModeToggle({ isLightTheme }) {
-  console.log(isLightTheme);
   return (
     <>
       <Helmet

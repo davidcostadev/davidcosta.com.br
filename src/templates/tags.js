@@ -2,6 +2,7 @@
 /* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 // Utilities
 import kebabCase from 'lodash/kebabCase';
@@ -17,10 +18,7 @@ import { useText } from '../context/TextContext';
 import getBaseUrl from '../utils/getBaseUrl';
 
 const styles = {
-  tagListDiv: {
-    marginLeft: '1.5rem',
-    lineHeight: 3,
-  },
+  tagListDiv: {},
 };
 
 const TagsPage = ({
@@ -53,7 +51,7 @@ const TagsPage = ({
       <Helmet title={tTags} />
       <div>
         <h1>{tTags}</h1>
-        <div style={styles.tagListDiv}>
+        <TagList>
           {group.map(tag => (
             <Tag
               key={tag.fieldValue}
@@ -62,7 +60,7 @@ const TagsPage = ({
               url={`${base}tags/${kebabCase(tag.fieldValue)}/`}
             />
           ))}
-        </div>
+        </TagList>
       </div>
     </Layout>
   );
@@ -109,4 +107,9 @@ export const pageQuery = graphql`
       }
     }
   }
+`;
+
+const TagList = styled.div`
+  margin-left: 1.5rem;
+  line-height: 3;
 `;
