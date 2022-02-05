@@ -9,7 +9,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { StaticQuery, graphql } from 'gatsby';
 import Image from 'gatsby-image';
-import styled from 'styled-components';
+import styled from 'styled-components/macro';
 
 import { rhythm } from '../utils/typography';
 import { useText } from '../context/TextContext';
