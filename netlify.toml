@@ -11,6 +11,18 @@
   force = true
 
 [[redirects]]
+  from = "https://davidcosta.com.br/pt-br/*"
+  to = "https://davidcosta.dev/articles/pt-br/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://davidcosta.com.br/en/*"
+  to = "https://davidcosta.dev/articles/en/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "http://davidcosta.com.br/*"
   to = "https://davidcosta.com.br/:splat"
   status = 301
